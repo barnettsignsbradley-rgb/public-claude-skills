@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/admin/admin.css">
+  <link rel="stylesheet" href="/admin/theme.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="shell">
+    <aside class="side">
+      <div class="brand"><img class="brand-logo" id="logo" alt="" hidden><span class="brand-name"><span class="brand-site" id="site">Admin</span><span class="brand-tag">admin</span></span></div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav id="nav" aria-label="Admin sections"></nav>
+      <div class="me">
+        <span id="me-name"></span>
+        <a href="#account">Account</a>
+        <button type="button" id="signout" class="link">Sign out</button>
+      </div>
+    </aside>
+    <main id="main" tabindex="-1"><p class="muted">Loading…</p></main>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <dialog id="confirm"><form method="dialog"><p id="confirm-text"></p>
+    <div class="row end"><button value="cancel" class="ghost">Cancel</button><button value="ok" id="confirm-ok">Confirm</button></div></form></dialog>
+  <script src="/admin/admin.js" type="module"></script>
+</body>
+</html>

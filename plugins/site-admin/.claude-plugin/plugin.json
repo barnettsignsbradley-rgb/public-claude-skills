@@ -1,0 +1,17 @@
+{
+  "name": "site-admin",
+  "description": "The same /admin on every one of your websites: per-person sign-in with roles, resets, throttling and an activity log; analytics with graphs; an inbox for every form with editable recipients and a Responded checkbox; a Setup tab that connects Stripe, email, MailerLite and spam protection from inside the admin with live checks; an (i) with step-by-step help on every tab; plus people, a tab per product, course progress, calendar, affiliates, Stripe codes and links, sending documents, and MailerLite groups where a site needs them. Ships a tested kit for Cloudflare Pages on D1 or Supabase, and notes for KV and Next.js.",
+  "version": "1.4.2",
+  "author": {
+    "name": "Bradley Barnett"
+  },
+  "repository": "https://github.com/barnettsignsbradley-rgb/public-claude-skills",
+  "keywords": [
+    "admin",
+    "dashboard",
+    "website",
+    "auth",
+    "analytics",
+    "cloudflare"
+  ]
+}

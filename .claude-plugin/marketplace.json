@@ -1,0 +1,25 @@
+{
+  "name": "public-claude-skills",
+  "description": "Two Claude Code skills: site-admin and media-gen.",
+  "owner": {
+    "name": "Bradley Barnett"
+  },
+  "plugins": [
+    {
+      "name": "site-admin",
+      "description": "The same /admin on every one of your websites: per-person sign-in with roles, resets and an activity log, analytics, a forms inbox, a Setup tab that connects Stripe, email, MailerLite and spam protection with live checks, and optional modules. Ships a tested kit for Cloudflare Pages on D1 or Supabase, and notes for KV and Next.js.",
+      "version": "1.4.2",
+      "source": "./plugins/site-admin",
+      "author": { "name": "Bradley Barnett" },
+      "category": "development"
+    },
+    {
+      "name": "media-gen",
+      "description": "AI images, image-to-video and Topaz upscaling through Fal.ai, pay per use, saved to a local folder. Needs your own Fal API key and: pip install fal-client==1.0.3. Video spends are blocked until you approve the quoted price.",
+      "version": "1.0.3",
+      "source": "./plugins/media-gen",
+      "author": { "name": "Bradley Barnett" },
+      "category": "design"
+    }
+  ]
+}

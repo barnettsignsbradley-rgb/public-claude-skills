@@ -1,0 +1,20 @@
+# Normalize everything to LF in the repo and on checkout, so the impeccable
+# POSIX launcher (scripts/impeccable, a #!/bin/sh file with no extension)
+# runs on macOS, Linux and Git Bash. Windows checkouts with autocrlf=true
+# would otherwise turn it into CRLF and sh would choke on the \r.
+* text=auto eol=lf
+
+# Windows batch files need CRLF.
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+# Binaries: never touch.
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.webp -text
+*.gif -text
+*.ttf -text
+*.woff -text
+*.woff2 -text
+*.zip -text

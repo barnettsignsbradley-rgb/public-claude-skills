@@ -1,0 +1,21 @@
+/* This site's look for its admin. The admin should look like the website:
+   same colours, same fonts, same buttons. Set the tokens from admin.css
+   here (and nothing else), taken from the site's own stylesheet.
+
+   Colours set in :root here also replace the kit's dark-mode colours (this
+   file loads later), so the admin stays in the site's colours. A site that
+   has a dark mode of its own adds a @media (prefers-color-scheme: dark)
+   block here as well.
+
+   Fonts: an @import of the site's Google Fonts at the top of this file.
+   The logo: siteLogo in functions/admin/_lib/modules.js.
+
+   Example:
+   @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Inter:wght@400;600&display=swap');
+   :root {
+     --accent: #1B568D; --bg: #EFEFEC; --panel: #FCFBF7; --ink: #213240; --line: #E7E0D2;
+     --font: "Inter", sans-serif; --font-head: "Lora", serif; --head-weight: 400;
+     --btn-r: 999px; --btn-case: uppercase; --btn-track: .14em; --btn-size: 12px;
+     --side-bg: #365B6D; --side-ink: #fff; --side-current: #FCFBF7; --side-current-ink: #1B568D;
+   }
+*/

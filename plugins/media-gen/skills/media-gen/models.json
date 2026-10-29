@@ -1,0 +1,126 @@
+{
+  "last_updated": "2026-10-14",
+  "notes": "Curated 'current best' registry for Fal.ai. Parameter names and enums checked against each endpoint's OpenAPI schema (https://fal.ai/api/openapi/queue/openapi.json?endpoint_id=<fal_id>) on last_updated. Prices are what generate.py quotes; if price_last_verified is over 30 days old, re-check fal.ai/models/<fal_id> before quoting. default_args go to Fal as-is; CLI flags override them.",
+
+  "image": {
+    "default": "nano-banana-pro",
+    "models": {
+      "nano-banana-pro": {
+        "fal_id": "fal-ai/nano-banana-pro",
+        "best_for": "Photorealistic and stylized images. Strong prompt adherence with natural-language descriptive prompts. Text-to-image only: references are refused, use nano-banana-pro-edit.",
+        "default_args": { "aspect_ratio": "16:9", "resolution": "2K", "num_images": 1, "output_format": "png" },
+        "accepts_references": false,
+        "price_per_image_usd": 0.15,
+        "price_note": "4K is double ($0.30).",
+        "price_last_verified": "2026-10-14",
+        "output_path": "images"
+      },
+      "nano-banana-pro-edit": {
+        "fal_id": "fal-ai/nano-banana-pro/edit",
+        "best_for": "Image-to-image variant of Nano Banana Pro. Uses --input-image references for identity, wardrobe and composition. Use whenever references are passed.",
+        "default_args": { "aspect_ratio": "auto", "resolution": "2K", "num_images": 1, "output_format": "png" },
+        "accepts_references": true,
+        "reference_arg": "image_urls",
+        "price_per_image_usd": 0.15,
+        "price_note": "4K is double ($0.30).",
+        "price_last_verified": "2026-10-14",
+        "output_path": "images"
+      },
+      "gpt-image-2": {
+        "fal_id": "fal-ai/gpt-image-2",
+        "best_for": "Alternative when Nano Banana misreads complex multi-subject scenes, or for transparent backgrounds (--extra background=transparent). Takes image_size presets, not aspect ratios; the script maps the common ratios.",
+        "default_args": { "num_images": 1, "quality": "high", "output_format": "png" },
+        "accepts_references": false,
+        "aspect_to_image_size": {
+          "1:1": "square_hd", "4:3": "landscape_4_3", "16:9": "landscape_16_9",
+          "3:4": "portrait_4_3", "9:16": "portrait_16_9"
+        },
+        "price_per_image_usd": 0.2,
+        "price_note": "Token-billed; high quality at landscape sizes runs roughly $0.15-0.25. Treat as an estimate.",
+        "price_last_verified": "2026-10-14",
+        "output_path": "images"
+      }
+    }
+  },
+
+  "video_image_to_video": {
+    "default": "seedance-2-pro",
+    "models": {
+      "seedance-2-pro": {
+        "fal_id": "bytedance/seedance-2.0/image-to-video",
+        "best_for": "ByteDance's flagship image-to-video. Cinematic motion, synchronized audio, end-frame control. 1080p is about 2.2x the 720p price; draft at 720p.",
+        "image_arg": "image_url",
+        "default_args": { "duration": "5", "resolution": "1080p" },
+        "resolutions": ["480p", "720p", "1080p", "4k"],
+        "price_per_second_usd": { "720p": 0.3034, "1080p": 0.682 },
+        "price_note": "5s is ~$1.52 at 720p, ~$3.41 at 1080p. 480p and 4k are token-billed; check fal.ai before quoting them.",
+        "price_last_verified": "2026-10-14",
+        "output_path": "video.url"
+      },
+      "seedance-2-fast": {
+        "fal_id": "bytedance/seedance-2.0/fast/image-to-video",
+        "best_for": "Faster, cheaper Seedance for iteration drafts. 720p max.",
+        "image_arg": "image_url",
+        "default_args": { "duration": "5", "resolution": "720p" },
+        "resolutions": ["480p", "720p"],
+        "price_per_second_usd": { "720p": 0.2419 },
+        "price_note": "5s is ~$1.21.",
+        "price_last_verified": "2026-10-14",
+        "output_path": "video.url"
+      },
+      "kling-v3-pro": {
+        "fal_id": "fal-ai/kling-video/v3/pro/image-to-video",
+        "best_for": "Top-tier Kling. Fluid motion, native audio. Cheapest good option; try it when Seedance feels stiff. No resolution setting.",
+        "image_arg": "start_image_url",
+        "default_args": { "duration": "5" },
+        "resolutions": [],
+        "price_per_second_usd": 0.168,
+        "price_per_second_usd_audio_off": 0.112,
+        "price_note": "5s is ~$0.84 with audio, ~$0.56 with --no-audio.",
+        "price_last_verified": "2026-10-14",
+        "output_path": "video.url"
+      },
+      "kling-v3-4k": {
+        "fal_id": "fal-ai/kling-video/v3/4k/image-to-video",
+        "best_for": "Native 4K Kling. Only when 4K delivery is required.",
+        "image_arg": "start_image_url",
+        "default_args": { "duration": "5" },
+        "resolutions": [],
+        "price_per_second_usd": 0.42,
+        "price_note": "5s is ~$2.10.",
+        "price_last_verified": "2026-10-14",
+        "output_path": "video.url"
+      }
+    }
+  },
+
+  "upscale_video": {
+    "default": "topaz-video",
+    "models": {
+      "topaz-video": {
+        "fal_id": "fal-ai/topaz/upscale/video",
+        "best_for": "Topaz Video AI. Cleans, sharpens and upscales real footage. Proteus is the safe default. One upscale_factor for both axes, so aspect ratio is preserved.",
+        "default_args": { "model": "Proteus", "recover_detail": 0.5, "H264_output": true },
+        "price_tiers_per_second_usd": { "up_to_720p": 0.01, "720p_to_1080p": 0.02, "above_1080p": 0.08 },
+        "price_note": "Doubles for 60fps output. --fps 30 re-encodes the source first to stay on the base rate.",
+        "price_last_verified": "2026-10-14",
+        "output_path": "video.url"
+      }
+    }
+  },
+
+  "upscale_image": {
+    "default": "topaz-image",
+    "models": {
+      "topaz-image": {
+        "fal_id": "fal-ai/topaz/upscale/image",
+        "best_for": "Topaz image upscaler. Standard V2 is the safe default. One upscale_factor, aspect preserved.",
+        "default_args": { "model": "Standard V2", "output_format": "png" },
+        "price_tiers_per_image_usd": { "up_to_24mp": 0.08, "up_to_48mp": 0.16, "up_to_96mp": 0.32 },
+        "price_note": "Above 96MP costs more; the script asks for approval there.",
+        "price_last_verified": "2026-10-14",
+        "output_path": "image.url"
+      }
+    }
+  }
+}

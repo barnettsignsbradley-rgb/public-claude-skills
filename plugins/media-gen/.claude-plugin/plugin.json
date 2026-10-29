@@ -1,0 +1,16 @@
+{
+  "name": "media-gen",
+  "description": "AI images, image-to-video and Topaz upscaling through Fal.ai, pay per use, saved to a local folder. Needs your own Fal API key and: pip install fal-client==1.0.3. Video spends are blocked until you approve the quoted price.",
+  "version": "1.0.3",
+  "author": {
+    "name": "Bradley Barnett"
+  },
+  "repository": "https://github.com/barnettsignsbradley-rgb/public-claude-skills",
+  "keywords": [
+    "images",
+    "video",
+    "fal",
+    "upscale",
+    "ai-generation"
+  ]
+}
